@@ -10,12 +10,13 @@ namespace JsonSerializeiationandDeserizlationList
         {
             List<User> users = new List<User>();
 
-            Console.WriteLine(users.Count);
-
 
             Console.WriteLine("1 - Initilize new data");
             Console.WriteLine("2 - Read current data");
             int choice = int.Parse(Console.ReadLine());
+
+        
+
 
             if (choice == 1)
             {
@@ -42,12 +43,20 @@ namespace JsonSerializeiationandDeserizlationList
             else if (choice == 2)
             {
                 // Deserilizing
+
+                // Static way
                 string filename = "C:\\Users\\user\\Desktop\\Coding part2\\JsonSerializeiationandDeserizlationList\\JsonSerializeiationandDeserizlationList\\UserData.json";
-                string jsonString = File.ReadAllText(filename);
+
+
+                // Used for help https://stackoverflow.com/questions/40994534/get-relative-path-of-a-file-c-sharp
+                https://stackoverflow.com/questions/17405180/how-to-read-existing-text-files-without-defining-path
+
+                // Dynamic way
+                var path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "UserData.json");
+
+                string jsonString = File.ReadAllText(path);
                 List<User> user = JsonSerializer.Deserialize<List<User>>(jsonString);
                 users = user;
-
-
 
                 Console.WriteLine(users.Count());
             }
