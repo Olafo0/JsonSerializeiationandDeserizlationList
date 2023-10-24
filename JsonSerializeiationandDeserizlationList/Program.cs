@@ -30,7 +30,6 @@ namespace JsonSerializeiationandDeserizlationList
                 users.Add(data2);
                 users.Add(data3);
 
-
                 // serializing 
                 string fileName = "C:\\Users\\user\\Desktop\\Coding part2\\JsonSerializeiationandDeserizlationList\\JsonSerializeiationandDeserizlationList\\UserData.json";
                 string jsonString = JsonSerializer.Serialize(users);
@@ -39,17 +38,15 @@ namespace JsonSerializeiationandDeserizlationList
                 Console.WriteLine(File.ReadAllText(fileName));
             }
 
-            
             else if (choice == 2)
             {
                 // Deserilizing
 
+                // Used for help https://stackoverflow.com/questions/40994534/get-relative-path-of-a-file-c-sharp
+                //https:stackoverflow.com/questions/17405180/how-to-read-existing-text-files-without-defining-path
+
                 // Static way
                 string filename = "C:\\Users\\user\\Desktop\\Coding part2\\JsonSerializeiationandDeserizlationList\\JsonSerializeiationandDeserizlationList\\UserData.json";
-
-
-                // Used for help https://stackoverflow.com/questions/40994534/get-relative-path-of-a-file-c-sharp
-                https://stackoverflow.com/questions/17405180/how-to-read-existing-text-files-without-defining-path
 
                 // Dynamic way
                 var path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "UserData.json");
